@@ -116,6 +116,7 @@ def show_predict_page():
         prediction = rf.predict(input_df)[0]
         proba = rf.predict_proba(input_df)[0][1]
         st.success(f"Prediction: {'Canceled' if prediction==1 else 'Not Canceled'}")
+        st.info(f"Probability of cancellation: {proba:.2f}")
 
         # 🔍 Input Summary
         st.markdown("### 🧾 Input Summary")
@@ -132,5 +133,6 @@ def show_predict_page():
             st.markdown(f"**👤 Customer Type:** {customer_type}")
             st.markdown(f"**👨‍👩‍👧‍👦 Adults:** {adults}, Children: {children}, Babies: {babies}")
             st.markdown(f"**🛏️ Reserved Room Type:** {reserved_room_type}, Assigned Room Type:** {reserved_room_type}")
+
 
 
