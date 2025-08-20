@@ -7,30 +7,6 @@ import os
 from PIL import Image
 
 
-def plot_outlier(df, column):
-    # Pastikan kolom bertipe numerik
-    data = pd.to_numeric(df[column], errors='coerce').dropna()
-
-    fig, axes = plt.subplots(1, 3, figsize=(18, 4))
-
-    # Histogram
-    sns.histplot(data, bins=30, kde=True, ax=axes[0], color="#6CC38C")
-    axes[0].set_title(f"{column} - Histogram")
-
-    # Q-Q Plot
-    res = stats.probplot(data, dist="norm", plot=axes[1])
-    axes[1].get_lines()[0].set_color("#62996e")  # Data points
-    axes[1].get_lines()[1].set_color("#FF6C6C")  # Fitted line
-    axes[1].set_title(f"{column} - Q-Q Plot")
-
-    # Boxplot
-    sns.boxplot(x=data, ax=axes[2], color="#6CC38C")
-    axes[2].set_title(f"{column} - Boxplot")
-
-    st.pyplot(fig)
-    plt.clf()
-
-
 def show_overview():
     # Path file gambar
     image_path = os.path.join(os.path.dirname(__file__), "..", "images", "hotel1.png")
@@ -164,6 +140,7 @@ def show_overview():
     for col in numeric_cols:
         with st.expander(f"🧪 Outlier Visualization ({col})"):
             plot_outlier(df, col)
+
 
 
 
