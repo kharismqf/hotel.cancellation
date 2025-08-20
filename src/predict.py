@@ -22,7 +22,7 @@ def load_model_from_gdrive(url):
 
 # Load model & training columns
 rf = load_model_from_gdrive(MODEL_URL)
-training_columns = load_model_from_gdrive("https://drive.google.com/file/d/14tmlc4z7ZHbYxePdV9cLyO5OHtqAO9cf/view?usp=sharing")
+training_columns = load_model_from_gdrive("https://drive.google.com/uc?export=download&id=14tmlc4z7ZHbYxePdV9cLyO5OHtqAO9cf")
 
 # ----------------------------
 # Halaman Predict
@@ -64,4 +64,5 @@ def show_predict_page():
         proba = rf.predict_proba(input_df)[0][1]
         st.success(f"Prediction: {'Canceled' if prediction == 1 else 'Not Canceled'}")
         st.info(f"Probability of cancellation: {proba:.2f}")
+
 
