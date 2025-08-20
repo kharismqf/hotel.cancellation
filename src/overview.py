@@ -3,6 +3,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 import scipy.stats as stats
+import os
+from PIL import Image
+
 
 def plot_outlier(df, column):
     # Pastikan kolom bertipe numerik
@@ -29,14 +32,21 @@ def plot_outlier(df, column):
 
 
 def show_overview():
+    # Path file gambar
     image_path = os.path.join(os.path.dirname(__file__), "..", "images", "hotel1.png")
-    st.image(image_path, use_container_width=True)
+    
+    # Cek apakah file ada
+    if os.path.exists(image_path):
+        st.image(image_path, use_container_width=True)
+    else:
+        st.warning("Gambar tidak ditemukan, gunakan gambar default atau URL.")
+    
     st.markdown("""
-        <div style="background-color: #dee47e; padding: 15px; border-radius: 10px; font-size: 16px; text-align: justify;">
-        This dataset contains information on hotel bookings, including customer details, booking specifics, and whether the booking was canceled.
-        Analyzing these features helps in understanding patterns in cancellations and improving hotel management strategies.
+        <div style="background-color: #dee47e; padding: 15px; border-radius: 5px;">
+        This dataset contains information on hotel bookings, including booking dates, customer details, and details of cancellations.
         </div>
     """, unsafe_allow_html=True)
+
 
     st.markdown("### 📦 Dataset Preview")
     st.markdown("Below is a quick glimpse into the hotel booking dataset:")
@@ -154,4 +164,5 @@ def show_overview():
     for col in numeric_cols:
         with st.expander(f"🧪 Outlier Visualization ({col})"):
             plot_outlier(df, col)
+
 
