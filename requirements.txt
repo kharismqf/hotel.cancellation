@@ -8,3 +8,7 @@ jupyter
 notebook
 streamlit_option_menu
 streamlit
+joblib
+requests
+plotly
+
