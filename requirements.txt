@@ -6,4 +6,5 @@ scikit-learn
 scipy
 jupyter
 notebook
+streamlit_option_menu
 streamlit
