@@ -36,7 +36,7 @@ def show_predict_page():
     # -----------------------------
     # Gambar Hotel di sebelah kiri
     # -----------------------------
-    img_path = Path(__file__).parent.parent / "images" / "Hotel2.png"
+    img_path = Path(__file__).parent.parent / "images" / "hotel2.png"
     img_col, form_col = st.columns([1, 3])
     with img_col:
         st.image(str(img_path), use_container_width=True)
@@ -133,3 +133,4 @@ def show_predict_page():
             st.markdown(f"**👤 Customer Type:** {customer_type}")
             st.markdown(f"**👨‍👩‍👧‍👦 Adults:** {adults}, Children: {children}, Babies: {babies}")
             st.markdown(f"**🛏️ Reserved Room Type:** {reserved_room_type}, Assigned Room Type:** {reserved_room_type}")
+
