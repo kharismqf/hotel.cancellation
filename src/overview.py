@@ -118,28 +118,11 @@ def show_overview():
 
     st.write("---")
 
-    with st.expander("🧹 Data Preprocessing Summary"):
-        st.subheader("🔎 1. Missing Values")
-        missing_data = df.isnull().sum()
-        missing_data = missing_data[missing_data > 0]
-        st.dataframe(missing_data)
-
-        st.subheader("✅ 2. Duplicate Check")
-        if df.duplicated().sum() == 0:
-            st.write("No duplicate rows found in the dataset.")
-        else:
-            st.write(f"Found {df.duplicated().sum()} duplicate rows.")
-
-        st.subheader("📉 3. Outlier Inspection")
-        st.markdown("Numerical columns were examined for outliers. Explore below:")
-
     numeric_cols = ["lead_time", "stays_in_weekend_nights", "stays_in_week_nights", 
                     "adults", "children", "babies", "previous_cancellations",
                     "booking_changes", "total_of_special_requests"]
 
-    for col in numeric_cols:
-        with st.expander(f"🧪 Outlier Visualization ({col})"):
-            plot_outlier(df, col)
+
 
 
 
