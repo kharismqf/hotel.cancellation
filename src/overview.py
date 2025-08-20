@@ -29,8 +29,8 @@ def plot_outlier(df, column):
 
 
 def show_overview():
-    st.markdown("<h1 style='text-align: center; color: #000;'>🏨 Hotel Cancellation Dataset</h1>", unsafe_allow_html=True)
-    st.image("images/Hotel1.png", use_container_width=True)
+    image_path = os.path.join(os.path.dirname(__file__), "..", "images", "hotel1.png")
+    st.image(image_path, use_container_width=True)
     st.markdown("""
         <div style="background-color: #dee47e; padding: 15px; border-radius: 10px; font-size: 16px; text-align: justify;">
         This dataset contains information on hotel bookings, including customer details, booking specifics, and whether the booking was canceled.
@@ -154,3 +154,4 @@ def show_overview():
     for col in numeric_cols:
         with st.expander(f"🧪 Outlier Visualization ({col})"):
             plot_outlier(df, col)
+
