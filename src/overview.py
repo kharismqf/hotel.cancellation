@@ -43,7 +43,7 @@ def show_overview():
     
     st.markdown("""
         <div style="background-color: #dee47e; padding: 15px; border-radius: 5px;">
-        This dataset contains information on hotel bookings, including booking dates, customer details, and details of cancellations.
+        This dataset contains information on hotel bookings, including booking dates, customer details, and cancellation information.
         </div>
     """, unsafe_allow_html=True)
 
@@ -164,5 +164,6 @@ def show_overview():
     for col in numeric_cols:
         with st.expander(f"🧪 Outlier Visualization ({col})"):
             plot_outlier(df, col)
+
 
 
