@@ -8,6 +8,7 @@ from PIL import Image
 
 
 def show_overview():
+    st.title("🏨 Get to Know The Data - Hotel Cancellation")
     # Path file gambar
     image_path = os.path.join(os.path.dirname(__file__), "..", "images", "hotel1.png")
     
@@ -121,6 +122,7 @@ def show_overview():
     numeric_cols = ["lead_time", "stays_in_weekend_nights", "stays_in_week_nights", 
                     "adults", "children", "babies", "previous_cancellations",
                     "booking_changes", "total_of_special_requests"]
+
 
 
 
